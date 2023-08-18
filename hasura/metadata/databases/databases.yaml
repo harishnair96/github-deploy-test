@@ -1,0 +1,17 @@
+- name: default
+  kind: postgres
+  configuration:
+    connection_info:
+      database_url:
+        from_env: PG_DATABASE_URL
+      isolation_level: read-committed
+      use_prepared_statements: false
+    read_replicas:
+      - database_url:
+          from_env: PG_DATABASE_URL
+        isolation_level: read-committed
+        pool_settings:
+          connection_lifetime: 600
+          total_max_connections: 100
+        use_prepared_statements: false
+  tables: "!include default/tables/tables.yaml"

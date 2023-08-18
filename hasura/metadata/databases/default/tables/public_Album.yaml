@@ -1,0 +1,68 @@
+table:
+  name: Album
+  schema: public
+configuration:
+  column_config: {}
+  custom_column_names: {}
+  custom_name: Albs
+  custom_root_fields:
+    select_aggregate: albs_aggregate
+object_relationships:
+  - name: Artist
+    using:
+      foreign_key_constraint_on: ArtistId
+array_relationships:
+  - name: Tracks
+    using:
+      foreign_key_constraint_on:
+        column: AlbumId
+        table:
+          name: Track
+          schema: public
+select_permissions:
+  - role: test2
+    permission:
+      columns:
+        - Title
+        - AlbumId
+        - ArtistId
+      filter: {}
+      subscription_root_fields: []
+  - role: unauth
+    permission:
+      columns:
+        - Title
+        - AlbumId
+        - ArtistId
+      filter: {}
+  - role: user
+    permission:
+      columns:
+        - Title
+        - AlbumId
+        - ArtistId
+      filter: {}
+  - role: viewer
+    permission:
+      columns:
+        - Title
+        - AlbumId
+        - ArtistId
+      filter: {}
+event_triggers:
+  - name: CRUD_User_With_Role
+    definition:
+      delete:
+        columns: '*'
+      enable_manual: true
+      insert:
+        columns: '*'
+      update:
+        columns: '*'
+    retry_conf:
+      interval_sec: 10
+      num_retries: 0
+      timeout_sec: 60
+    webhook: http://httpbin.org/post
+apollo_federation_config:
+  enable: v1

@@ -1,0 +1,9 @@
+depth_limit:
+  global: 1
+  per_role: {}
+disabled: false
+rate_limit:
+  global:
+    max_reqs_per_min: 5
+    unique_params: null
+  per_role: {}
