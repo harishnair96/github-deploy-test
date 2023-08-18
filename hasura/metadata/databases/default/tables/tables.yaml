@@ -8,4 +8,5 @@
 - "!include public_MediaType.yaml"
 - "!include public_Playlist.yaml"
 - "!include public_PlaylistTrack.yaml"
+- "!include public_TestTable.yaml"
 - "!include public_Track.yaml"
