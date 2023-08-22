@@ -4,7 +4,7 @@ table:
 configuration:
   column_config: {}
   custom_column_names: {}
-  custom_name: Albs
+  custom_name: Albs123
   custom_root_fields:
     select_aggregate: albs_aggregate
 object_relationships:
