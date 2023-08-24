@@ -10,3 +10,4 @@
 - "!include public_PlaylistTrack.yaml"
 - "!include public_TestTable.yaml"
 - "!include public_Track.yaml"
+- "!include public_test.yaml"
